@@ -4,13 +4,13 @@ This is ancient, essentially unsupported software.
 
 It seems to work on modern Linux computers, but I make no promises.
 
-This source code is being placed on GitHub as a courtesy. I will
-provide little to no support of any kind for the use of this software.
-I will provide little to no advice for how to build and install this
-software.  I probably will not fix bugs.  I probably will not answer
-questions.  Indeed, any questions or comments you have on this version
-of the program are likely to be silently ignored.  This is unsupported
-software.
+This source code is being placed on GitHub for purposes of historical
+preservation.  I will provide little to no support for the use of this
+software.  I will provide little to no advice for how to build and
+install this software.  I probably will not fix bugs.  I probably will
+not answer questions.  Indeed, questions or comments you have on this
+version of the program are likely to be silently ignored, although you
+can certain open an issue if you like.  This is unsupported software.
 
 I hope the preceding paragraph is clear.
 
