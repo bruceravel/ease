@@ -4352,7 +4352,7 @@ Defined keys in input-mode:\n\\{input-mode-map}"
 					; set local hooks for input
 					; mode
     (message "EASE: Adding to write-contents-hooks and kill-emacs-hook")
-    (make-local-hook 'write-contents-hooks)
+    ;(make-local-hook 'write-contents-hooks)
     (add-hook 'write-contents-hooks 'input-end-newline           nil t)
     (add-hook 'write-contents-hooks 'input-write-configuration   nil t)
     (add-hook 'write-contents-hooks 'ease-set-all-mouse-overlays nil t)
@@ -4360,7 +4360,7 @@ Defined keys in input-mode:\n\\{input-mode-map}"
     (add-hook 'kill-emacs-hook      'input-save-run-log)
 					; use time-stamp.el
     (add-hook 'write-contents-hooks 'input-set-time-stamp nil t)
-    (make-local-hook 'find-file-hooks)
+    ;(make-local-hook 'find-file-hooks)
     (add-hook 'find-file-hooks      'ease-hide-autoconfig)
     (make-local-variable 'time-stamp-active)
     (make-local-variable 'time-stamp-line-limit)
