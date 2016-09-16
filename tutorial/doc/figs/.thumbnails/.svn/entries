@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-03-15T17:47:51.488392Z"
+   url="file:///home/bruce/svn/ease/trunk/tutorial/doc/figs/.thumbnails"
+   last-author="bruce"
+   kind="dir"
+   uuid="517f2799-5df2-0310-be4b-e67c1f732285"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="autobk-plot.jpg.png"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="e159c3bee1f4378db8ec647894547e46"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feff-plot.jpg.png"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="c7853dd80b2b7b43281c5feccfe4e56e"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feffit-head.jpg.png"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="9fb4c5e11ec497f82e1bfb5d1ca4ed55"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="menu-atoms.jpg.png"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="9f3beb6f92d93e83ded7bf65c3f93dcb"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="atoms-inp.jpg.png"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="4015de61cf1beaba053fbad0cb67854c"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="autobk-inp.jpg.png"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="3e82587ce356e38b6ac00b2c4194379f"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feff-inp.jpg.png"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="7e95a20428fa551b9cc1a4f8e90e9713"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+</wc-entries>

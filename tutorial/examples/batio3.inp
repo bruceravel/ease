@@ -1,0 +1,24 @@
+%% This file is part of FUSE, The FEFF/UWXAFS System for Emacs
+%% This file demonstrates the use of definition and evaluation
+%% lines in an atoms input file
+
+title Barium Titanate from Kwei et al.
+title J Phys Chem, 97, 2368, 1993
+space	r 3 m
+a	4.0036	alpha	89.839
+core	ti
+
+!- ti=0.4872
+!- oxy=0.0109 oz=0.0193
+
+atom
+!+ ba	0	0	0
+   ba	 0.0000	 0.0000	 0.0000	             
+!+ ti	ti	ti	(ti)
+   ti	 0.4872	 0.4872	 0.4872	             
+!+ o	(0.5+oxy) (0.5+oxy) oz
+   o 	 0.5109	 0.5109	 0.0193	             
+
+
+!!&& program:	"atoms"
+%# Input-mode Time-stamp: <98/05/10 15:52:56 bruce>

@@ -1,0 +1,26 @@
+* EASE: The EXAFS Analysis System for Emacs
+
+This is ancient, essentially unsupported software.
+
+It seems to work on modern Linux computers, but I make no promises.
+
+This source code is being placed on GitHub as a courtesy. I will
+provide little to no support of any kind for the use of this software.
+I will provide little to no advice for how to build and install this
+software.  I probably will not fix bugs.  I probably will not answer
+questions.  Indeed, any questions or comments you have on this version
+of the program are likely to be silently ignored.  This is unsupported
+software.
+
+I hope the preceding paragraph is clear.
+
+
+** Waxing nostalgic
+
+It's a shame this is obsolete, to be completely honest.  This might be
+the best piece of software I ever wrote.  While Athena is a nice
+thing, EASE is certainly a way better tool for doing EXAFS analysis
+than Artemis ever was or ever will be.
+
+Even more amazing is that a pile of software written in the late 90s
+still basically works in modern Emacs.  Emacs is the best!

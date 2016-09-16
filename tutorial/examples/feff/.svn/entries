@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-03-15T17:47:51.488392Z"
+   url="file:///home/bruce/svn/ease/trunk/tutorial/examples/feff"
+   last-author="bruce"
+   kind="dir"
+   uuid="517f2799-5df2-0310-be4b-e67c1f732285"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="atoms.inp"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="e697c3e1a01e90a788f7f56cc54579f8"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+</wc-entries>

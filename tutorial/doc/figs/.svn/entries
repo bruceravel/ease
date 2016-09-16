@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-03-15T17:47:51.488392Z"
+   url="file:///home/bruce/svn/ease/trunk/tutorial/doc/figs"
+   last-author="bruce"
+   kind="dir"
+   uuid="517f2799-5df2-0310-be4b-e67c1f732285"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="menu-input.jpg"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="d6cabdafd11835476b887d752394bae5"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="autobk-plot.jpg"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="10d33a5a1e5a3cad396152d5809be118"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feffit-head.txt"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="58b98308eabbe95779c3c22ba9998d71"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feff-inp.eps"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="a844b120504a4796828356b185164f43"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feffit-head.jpg"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="d9d8593814b87218d013c8e99b900601"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   name=".thumbnails"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="atoms-inp.txt"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="5b6fdc56ef4f86a0b13944e8fb95cfae"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="atoms-inp.jpg"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="3353610493e1b4e1bc1c08c41ec2f809"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="autobk-plot.eps"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="bdb6daa053da1bc3207a7185f6d0d796"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="autobk-inp.txt"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="8c244ddaa8c29505e0f6f5fa43395447"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="menu-input.eps"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="d346294af93efba0c7f560214c18f366"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="autobk-inp.jpg"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="689e694c2c6a6d26004b73ef90a98bfa"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feffit-head.eps"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="1b47764569c0c3746a7b6d7e02b24ba1"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="atoms-inp.eps"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="37480e491735379726c4cb49b94deae8"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="autobk-inp.eps"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="e5d87e6720cfb8278729eefbf87b7296"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feff-plot.jpg"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="c4fce3f4eb9c4351748f366aaf0ceb1c"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="menu-atoms.jpg"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="2c6002cc385b9614a853a3008ee8e9b3"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feff-inp.txt"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="98ae0e23a7f1e2d183136e9ece988c71"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feff-plot.eps"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="76244b910c3a15079527639543776a40"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feff-inp.jpg"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="91811996c317c90c73e8b695b149aec1"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="menu-atoms.eps"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="ddbd684ed0cda45e8c315ce30f5cd62c"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+</wc-entries>

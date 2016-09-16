@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-03-15T17:47:51.488392Z"
+   url="file:///home/bruce/svn/ease/trunk/scripts"
+   last-author="bruce"
+   kind="dir"
+   uuid="517f2799-5df2-0310-be4b-e67c1f732285"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="rhofix"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="c5792c3e59ae9925a4be0fd83831f582"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="gnufix"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="52b9dd4a37f5c4d8e05a90664966d298"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="kw"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="ad08fedc65be2879a9e4faceb8ea9efa"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="eshift"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="670a0473c4e85f0a9596bf0544f48c92"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="lsdf"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="e494baba135e0c43cafabc40d2339496"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="minmax"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="3647dbd99fb5d801e92baf7c62156b1e"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="intrp"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="338bcad07611ba3b15453b539293b32b"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="fixin"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="10dcf414f3fe27f7efcca069446aa645"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mr"
+   text-time="2005-04-14T19:00:13.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="d95f2630066e18f673a490b75461c7b4"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:13.000000Z"/>
+</wc-entries>

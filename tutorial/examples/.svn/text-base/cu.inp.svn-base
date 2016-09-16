@@ -1,0 +1,18 @@
+title = Copper example
+data = data/cu10k.dat
+theory = feff/chi.dat
+out = data/cu10k
+nrmout = true	bkgxmu = true
+kmin = 1
+rbkg = 1	r1st = 4
+e0f =  8976.886
+--------------------------------------------------------
+
+
+!!&& Local Variables:
+!!&& input-out-path: "fits/"
+!!&& input-feff-path: "feff/"
+!!&& input-data-path: "data/"
+!!&& input-program-name: "autobk"
+!!&& End:
+%# Input-mode Time-stamp: <98/07/07 18:53:37 bruce>

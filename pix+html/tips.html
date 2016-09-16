@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>EASE Tips and Hints</title>
+    <!-- Changed by: Bruce Ravel, 29-Jan-2001 -->
+  </head>
+
+  <LINK REL="stylesheet" TYPE="text/css" HREF="../../bruce.css">
+
+  <body>
+    <h1>EASE Tips and Hints</h1>
+
+    <P>
+      On this page I am collecting some ideas I have for user level
+      customization of <span class=ease>EASE</span>.  Have fun.
+    </p>
+
+
+    <P>
+      <span class=header>Contents of this page:</span>
+    </P>
+    <ul>
+      <li>
+	<a href="#paths">Default file paths in Feffit minor mode</a>
+      </li>
+      <li>
+	<a href="#config">Editing auto-configuration values on screen</a>
+      </li>
+      <LI>
+	<A HREF="#annoyed">What to do if you are annoyed by the
+	  automatically written Local Variable list.</A>
+      </LI>
+      <li>
+	<a href="#after-run-hook">Using "input-after-run-hook"</a>
+      </li>
+      <li>
+	<a href="#calc">Automatically expanding evaluation lines in
+	  atoms.inp</a>
+      </li>
+      <li>
+	<a href="#speedbar">Using Imenu and speedbar</a>
+      </li>
+      <!--   <li><a href="#extend">Extending EASE to cover new
+	   programs, e.g. diffkk</a> -->
+    </ul>
+
+    <hr>
+
+    <dl>
+      <dt>
+	<a name="paths">
+	  <span class=header>
+	    Default file paths in Feffit minor mode
+	  </span>
+	</a>
+      </dt>
+      <dd>
+	<P>
+	  One of the really tedious things about using <span
+	  class=ease>EASE</span> is setting paths for the <span
+	  class=program>FEFF</span>, data, and output files every time
+	  a new <span class=file>`feffit.inp'</span> file is created.
+	  When I start a new bit of EXAFS analysis, I usually create a
+	  new directory to hold my work, then create subdirectories
+	  called <span class=file>`feff/'</span>, <span
+	  class=file>`data/'</span>, and <span
+	  class=file>`fits/'</span>.  This imposes some level of order
+	  on the files involved in data analysis and I am usually very
+	  consistent about choosing those directory names.  Here is a
+	  snippet of elisp code that you can put in your <span
+	  class=file>`~/.ease'</span> file that will set the data
+	  paths to those default values for a new file, but will not
+	  change them for an old file: <pre>
+	      (add-hook 'Feffit-mode-hook
+                 '(lambda ()
+	            (if input-feff-path ()
+                       (setq input-feff-path "feff/"))
+	            (if input-data-path ()
+	               (setq input-data-path "data/"))
+	            (if input-out-path ()
+	               (setq input-out-path  "fits/")) ))
+	  </pre>
+
+	</P>
+	<P>
+	  Since this is a mode-hook, it will be evaluated when the
+	  feffit input file is first visited.  The <span class=fixed>if</span>
+	  functions check to see if the values of the data paths were
+	  set from the auto-configuration line.  If they were, nothing
+	  happens.  If not, they are set to my user-chosen defaults.
+	  Note that <span class=fixed>(add-hook...)</span> is used rather than
+	  <span class=fixed>(setq...)</span>.  You should always set hooks in
+	  emacs using <span class=fixed>(add-hook...)</span> to avoid accidentally
+	  overwriting any functions already in the hook.
+	</p>
+      </dd><P>
+
+      <dt>
+	<a name="config">
+	  <span class=header>
+	    Editing auto-configuration values on screen
+	  </span>
+	</a>
+      </dt>
+      <dd>
+	<P>
+	  The auto-configuration values, i.e. the stuff that looks like
+      	  this
+      	  <pre>
+            &#033;&#033;&& input-program-name:     "feffit"
+            &#033;&#033;&& input-data-path:        "data/"
+            &#033;&#033;&& input-feff-path:        "feff/"
+            &#033;&#033;&& input-out-path:         "fits/"
+      	  </pre>
+
+	</P>
+	<P>
+	  can be edited on screen by changing the values inserted
+      	  between the double quotes, then doing <span class=fixed>M-x
+      	  input-set-configuration</span>, <span class=fixed>C-c C-b
+      	  a</span>, or selecting <span class=fixed>Reset
+      	  autoconfiguration variables</span> from the <span
+      	  class=fixed>Input->Miscellaneous</span> menu.
+	</p>
+      </dd><P>
+
+      <dt>
+	<a name="annoyed">
+	  <span class=header>
+	    What to do if you are annoyed by the autotomatically
+	    written Local Variables list.
+	  </span>
+	</a>
+      </dt>
+      <DD>
+	<P>
+	  Two possibly annoying features of <span
+	  class=ease>EASE</span> are the Local Variables list that
+	  gets written to the end of every file and the fact that you
+	  have to answer a question about what kind of file you are
+	  editing when you start a new input file.  That <span
+	  class=ease>EASE</span> writes the Local Variables list can
+	  be quite convenient for the user, but it is wrting something
+	  to the file that the user might not have chosen to write.
+	  The question is simply annoying if you just want to make a
+	  quick change and hurry along.
+	</P>
+	<P>
+	  There are several variables that you can set in your <span
+	  class=file>`.ease'</span> file that might be helpful if
+	  either of these features irks you.  Each of these is a logical
+	  flag, thus should be set to <span class=fixed>t</span> or
+	  <span class=fixed>nil</span>.
+	</P>
+	<UL>
+	  <LI>
+	    <P>
+	      <span class=fixed>ease-always-start-generic-flag</span>:<br> When
+	      non-nil this tells EASE to always start editing a file in
+	      generic minor mode whenever it cannot otherwise determine
+	      the file type.  Generic minor mode lacks most of the
+	      functionality of EASE, but it load slightly quicker than
+	      the other minor modes and it avoids the question about the
+	      file type.  You can always select
+	      <span class=fixed>Switch Programs</span> from the
+	      <span class=fixed>Input:Miscellaneous</span> menu
+	      (<span class=fixed>C-c C-b s</span>) to set the file type
+	      interactively.
+	    </P>
+	  </LI>
+	  <LI>
+	    <P>
+	      <span class=fixed>ease-hide-autoconfig-flag</span>:<br>
+	      When non-nil this tells EASE to narrow to the region
+	      between the beginning of the file and the beginning of
+	      the Local Variables list.  This has the effect of hiding
+	      the Local Variables list from sight.  It is still used
+	      by EASE, but it is out of sight.
+	    </P>
+	  </LI>
+	  <LI>
+	    <P>
+	      <span class=fixed>input-prohibit-autoconfig-flag</span>:<br>
+	      When non-nil this tells EASE to never write the Local
+	      Variable list.  Using this in conjunction with <span
+	      class=fixed>ease-always-start-generic-flag</span> is
+	      sensible.
+	    </P>
+	  </LI>
+	  <LI>
+	    <P>
+	      <span class=fixed>input-time-stamp-flag</span>:<br> When
+	      non-nil this tells EASE to never write a time stamp to
+	      the input file.
+	    </P>
+	  </LI>
+	  <LI>
+	    <P>
+	      <span class=fixed>ease-mouse-overlays-default-flag</span>:<br>
+	      When nil (note that this behaves opposite to all the
+	      others in this section) this tells EASE to not set the
+	      mouse-faces.  Thus, when nil the color over a filename
+	      will not flash when the mouse moves near it.  This
+	      doesn't have to do with the Local Variables list, but if
+	      someone dislikes the list then he probably doesn't like
+	      the mouse-faces either.
+	    </P>
+	  </LI>
+	</UL>
+	<P>
+	  Here is some code for your <span class=file>`.ease'</span>
+	  file implementing everything in this section.  Note that
+	  what I have listed here is the opposite to the default
+	  behavior.
+
+	  <PRE>
+	    (setq ease-always-start-generic-flag   t
+	          ease-hide-autoconfig-flag        t
+	          ease-prohibit-autoconfig-flag    t
+	          ease-time-stamp-flag             t
+	          ease-mouse-overlays-default-flag nil)
+	  </PRE>
+	</P>
+      </DD><P>
+
+      <dt>
+	<a name="after-run-hook">
+	  <span class=header>
+	    Using "input-after-run-hook"
+	  </span>
+	</a>
+      </dt>
+      <dd>
+	<P>
+	  <span class=ease>EASE</span> has a facility for performing
+	  user-specified chores when it is done running a program.
+	  The following code is an example of this.  This example will
+	  cause <span class=ease>EASE</span> to display the result of
+	  a fit from <span class=program>FEFFIT</span> in R space
+	  immediately after completing the fit.
+	  <pre>
+	    (add-hook 'input-after-run-hook
+	        '(lambda ()
+	           (if (string= input-program-name "feffit")
+		       (Feffit-plot-r))))
+	  </pre>
+	</P>
+	<P>
+	  Note that this will attempt to plot the fit regardless of
+	  whether <span class=program>FEFFIT</span> ran correctly.
+	  Thus, this might be something that you put into your <span
+	  class=file>`.ease'</span> file, but comment out until you have
+	  an input file that know is free of mistakes.
+	</p>
+	<P>
+	  This example is for having EASE open the <span
+	  class=file>`feff.inp'</span> generated by an <span
+	  class=program>ATOMS</span>
+	  run immediately upon finishing the <span
+	  class=program>ATOMS</span> run.  <pre>
+             (add-hook 'input-after-run-hook
+                 '(lambda ()
+                    (if (string= input-program-name "atoms")
+                        (input-jump-to-log-file))))
+	  </pre>
+	</p>
+	<P>
+	  To use both of these, you can either put both expressions in
+	  your <span class=file>`.ease'</span> file or do something like
+	  the following <pre>
+             (add-hook 'input-after-run-hook
+	         '(lambda ()
+	            (cond ((string= input-program-name "atoms")
+                           (input-jump-to-log-file))
+	                  ((string= input-program-name "feffit")
+		           (Feffit-plot-r)))))
+	  </pre>
+	</P>
+	<P>
+	  You can then string together special after-run instructions
+	  for each of the different programs.
+	</p>
+      </DD>
+
+      <dt>
+	<a name="calc">
+	  <span class=header>
+	    Automatically expanding evaluation lines in atoms.inp
+	  </span>
+	</a>
+      </dt>
+      <dd>
+	<P>
+	  Just as there is a hook that is run after program execution
+	  finishes, there is one that run before program execution
+	  starts.  I find it convenient to have <span class=ease>
+	  EASE</span> make sure that evaluation lines in an <span
+	  class=file>`atoms.inp'</span> file are expanded before
+	  running <span class=program>ATOMS</span>.  Putting this in
+	  the <span
+	  class=file>`.ease'</span> file accomplishes that:
+
+	  <pre>
+               (add-hook 'input-before-run-hook
+	          '(lambda () (and (string= "atoms" input-program-name)
+		      	           (Atoms-evaluate-buffer)
+			           (save-buffer))))
+	  </pre>
+	</P>
+	<P>
+	  Evaluation line expansion is a nifty feature of <span
+	  class=ease>EASE</span>.  You can define atoms coodinates
+	  using a line like this:
+
+	  <pre>
+	      &#033;+ Mn     0.0     3/4     1/8    mn1
+	  </pre>
+	</P>
+	<P>
+	  and it will be expanded to this
+	  <pre>
+	      &#033;+ Mn     0.0     3/4     1/8    mn1
+              Mn     0.0000  0.7500  0.1250 mn1
+	  </pre>
+	</P>
+	<P>
+	  Similarly you can define an atom coordinate using variables and
+	  math expressions.  This
+	  <pre>
+	      &#033;+ Ti      0.5     0.5     (0.5 + q*ti)
+	  </pre>
+	</P>
+	<P>
+	  expands to this
+	  <pre>
+	      &#033;+ Ti      0.5     0.5     (0.5 + q*ti)
+              Ti      0.5000  0.5000  0.5377
+	  </pre>
+	</P>
+	<P>
+	  assuming that the following definition line is found somewhere
+	  in the input file:
+	  <pre>
+	      &#033;- ti = 0.0377	q = 1
+	  </pre>
+
+	</P>
+	<P>
+	  Note that the evaluation and definition lines are comments
+	  and will be ignored by <span class=program>ATOMS</span>.
+	  The evaluation functions require
+	  <a href="http://www.synaptics.com/people/daveg/">
+	    the calc package</a>.
+	</p>
+
+      </DD>
+      <dt><a name="speedbar"><span class=header>Using Imenu and
+			       speedbar</span></a></dt>
+      <dd>
+	<P>
+	  You can use imenu rules in <span
+	  class=program>FEFFIT</span>, <span
+	  class=program>AUTOBK</span>, and phit minor modes.  <span
+	  class=fixed>M-x imenu</span> and <span
+	  class=fixed>M-x imenu-add-to-menubar</span> now do
+	  interesting things in input mode.  This is particularly
+	  handy for use with <a
+	  href="ftp://ftp.ultranet.com/pub/zappo/public_html/speedbar.shtml">
+	    speedbar</a>.  Put the following in your
+	  <span class=file>`~/.ease'</span> file to enable
+	  input file support in speedbar.
+
+	  <pre>
+		(if (featurep 'speedbar)
+          	    (speedbar-add-supported-extension ".inp"))
+	  </pre>
+	</p>
+      </DD>
+
+      <!--   <dt><a name="extend"><span class=header>Extending EASE to
+	   cover new programs,
+	   e.g. diffkk</span></a></dt>
+	   <dd>EASE is easily extended to cover programs not in the core
+	   distribution.  If you have an emacs lisp file with code defining
+	   a minor mode for a new program, put that file in the emacs load
+	   path and put lines like these in your <code>.ease</code> file:
+	   <pre>
+             (setq input-programs-alist
+            (append input-programs-alist '(("diffkk" . Diffkk-mode)) ))
+	   </pre>
+	   Substitute "diffkk" with the name of your program. <p>
+
+	   Diffkk is a real program.  You can obtain it <a
+	   href="http://cars1.uchicago.edu:80/~newville/dafs/diffkk/">here</a>
+	   and you can obtain EASE support for it <a
+	   href="ease-diffkk.tar.gz">here.</a> To use the EASE support
+	   for diffkk, unpack the tarball in the directory containing the
+	   EASE distribution.  Don't forget to byte-compile the
+	   <code>ease-diffkk.el</code> file.  <p> -->
+
+
+    </dl>
+
+
+    <hr>
+    <address>
+      <a href="http://feff.phys.washington.edu/~ravel/">Bruce Ravel</a>
+    </address>
+
+
+
+    <EM>Modified: 29-Jan-2001</EM>
+  </body>
+</html>

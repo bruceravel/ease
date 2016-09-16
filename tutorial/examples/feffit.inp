@@ -1,0 +1,169 @@
+title =  Copper example <data/cu10kk.chi>
+title =  Abs   Z=29 Rmt= 1.304 Rnm= 1.454 K  shell
+title =  Pot 1 Z=29 Rmt= 1.273 Rnm= 1.392
+title =  Gam_ch=1.761E+00 H-L exch
+title =  Mu=-5.468E+00 kf=1.722E+00 Vint=-1.677E+01 Rs_int= 2.106
+%  <data/cu10kk.chi>
+
+formin = ascii	formout = ascii
+rspout = yes	qspout = no	kspout = yes
+all = no
+%==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==
+
+title = FUSE tutorial
+data = data/cu10kk.chi
+out = fits/cu10k
+kmin = 2	kmax = 18	dk = 1	kw = 1
+rmin = 1	rmax = 3
+
+bkg = true
+#bkgfile = 
+
+%==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==
+set	sigmm	0.00052 
+guess	amp	0.891257  	!  +/- 0.043088    -- best fit value
+guess	e0	3.195279  	!  +/- 0.400086    -- best fit value
+guess	thetad	331.591248  	!  +/- 39.573353    -- best fit value
+guess	alpha	0.002171  	!  +/- 0.001010    -- best fit value
+set	temp	10
+%==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==+==
+
+
+s02	0	amp 
+e0	0	e0
+
+
+path	1	feff/feff0001.dat
+id	1	amp=100.000, deg=12.000, nleg=2, r_eff=2.5527
+delr	1	alpha*reff
+sigma2	1	debye(temp, thetad) + sigmm 
+
+path	2	feff/feff0002.dat
+id	2	amp=23.247, deg=6.000, nleg=2, r_eff=3.6100
+delr	2	alpha*reff
+sigma2	2	debye(temp, thetad) + sigmm 
+
+path	3	feff/feff0003.dat
+id	3	amp=17.200, deg=48.000, nleg=3, r_eff=3.8290
+delr	3	alpha*reff
+sigma2	3	debye(temp, thetad) + sigmm 
+
+path	4	feff/feff0004.dat
+id	4	amp=11.986, deg=48.000, nleg=3, r_eff=4.3577
+delr	4	alpha*reff
+sigma2	4	debye(temp, thetad) + sigmm 
+
+path	5	feff/feff0005.dat
+id	5	amp=56.082, deg=24.000, nleg=2, r_eff=4.4213
+delr	5	alpha*reff
+sigma2	5	debye(temp, thetad) + sigmm 
+
+path	6	feff/feff0006.dat
+id	6	amp=12.649, deg=48.000, nleg=3, r_eff=4.7633
+delr	6	alpha*reff
+sigma2	6	debye(temp, thetad) + sigmm 
+
+path	7	feff/feff0007.dat
+id	7	amp=34.012, deg=96.000, nleg=3, r_eff=4.7633
+delr	7	alpha*reff
+sigma2	7	debye(temp, thetad) + sigmm 
+
+path	8	feff/feff0008.dat
+id	8	amp=19.175, deg=12.000, nleg=2, r_eff=5.1053
+delr	8	alpha*reff
+sigma2	8	debye(temp, thetad) + sigmm 
+
+path	9	feff/feff0009.dat
+id	9	amp=11.049, deg=12.000, nleg=3, r_eff=5.1053
+delr	9	alpha*reff
+sigma2	9	debye(temp, thetad) + sigmm 
+
+path	10	feff/feff0010.dat
+id	10	amp=46.527, deg=24.000, nleg=3, r_eff=5.1053
+delr	10	alpha*reff
+sigma2	10	debye(temp, thetad) + sigmm 
+
+path	11	feff/feff0011.dat
+id	11	amp=7.844, deg=12.000, nleg=4, r_eff=5.1053
+delr	11	alpha*reff
+sigma2	11	debye(temp, thetad) + sigmm 
+
+path	12	feff/feff0012.dat
+id	12	amp=4.706, deg=12.000, nleg=4, r_eff=5.1053
+delr	12	alpha*reff
+sigma2	12	debye(temp, thetad) + sigmm 
+
+path	13	feff/feff0013.dat
+id	13	amp=2.944, deg=48.000, nleg=4, r_eff=5.1053
+delr	13	alpha*reff
+sigma2	13	debye(temp, thetad) + sigmm 
+
+path	14	feff/feff0014.dat
+id	14	amp=33.072, deg=12.000, nleg=4, r_eff=5.1053
+delr	14	alpha*reff
+sigma2	14	debye(temp, thetad) + sigmm 
+
+path	15	feff/feff0015.dat
+id	15	amp=2.767, deg=48.000, nleg=4, r_eff=5.1053
+delr	15	alpha*reff
+sigma2	15	debye(temp, thetad) + sigmm 
+
+path	16	feff/feff0016.dat
+id	16	amp=5.872, deg=48.000, nleg=3, r_eff=5.2920
+delr	16	alpha*reff
+sigma2	16	debye(temp, thetad) + sigmm 
+
+path	17	feff/feff0017.dat
+id	17	amp=28.255, deg=24.000, nleg=2, r_eff=5.7079
+delr	17	alpha*reff
+sigma2	17	debye(temp, thetad) + sigmm 
+
+path	18	feff/feff0018.dat
+id	18	amp=10.842, deg=48.000, nleg=3, r_eff=5.9353
+delr	18	alpha*reff
+sigma2	18	debye(temp, thetad) + sigmm 
+
+path	19	feff/feff0019.dat
+id	19	amp=9.113, deg=48.000, nleg=3, r_eff=5.9353
+delr	19	alpha*reff
+sigma2	19	debye(temp, thetad) + sigmm 
+
+path	20	feff/feff0020.dat
+id	20	amp=10.106, deg=48.000, nleg=3, r_eff=5.9353
+delr	20	alpha*reff
+sigma2	20	debye(temp, thetad) + sigmm 
+
+path	21	feff/feff0021.dat
+id	21	amp=7.133, deg=96.000, nleg=3, r_eff=6.0396
+delr	21	alpha*reff
+sigma2	21	debye(temp, thetad) + sigmm 
+
+path	22	feff/feff0022.dat
+id	22	amp=6.577, deg=96.000, nleg=3, r_eff=6.0396
+delr	22	alpha*reff
+sigma2	22	debye(temp, thetad) + sigmm 
+
+path	23	feff/feff0023.dat
+id	23	amp=7.327, deg=96.000, nleg=4, r_eff=6.0396
+delr	23	alpha*reff
+sigma2	23	debye(temp, thetad) + sigmm 
+
+path	24	feff/feff0024.dat
+id	24	amp=8.438, deg=96.000, nleg=4, r_eff=6.0396
+delr	24	alpha*reff
+sigma2	24	debye(temp, thetad) + sigmm 
+
+path	25	feff/feff0026.dat
+id	25	amp=7.284, deg=8.000, nleg=2, r_eff=6.2527
+delr	25	alpha*reff
+sigma2	25	debye(temp, thetad) + sigmm 
+
+
+!!&& Local Variables:
+!!&& input-k-weight: "2"
+!!&& input-out-path: "fits/"
+!!&& input-feff-path: "feff/"
+!!&& input-data-path: "data/"
+!!&& input-program-name: "feffit"
+!!&& End:
+%# Input-mode Time-stamp: <2000/01/09 16:42:38 bruce>

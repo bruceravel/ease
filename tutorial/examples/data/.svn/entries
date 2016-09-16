@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-03-15T17:47:51.488392Z"
+   url="file:///home/bruce/svn/ease/trunk/tutorial/examples/data"
+   last-author="bruce"
+   kind="dir"
+   uuid="517f2799-5df2-0310-be4b-e67c1f732285"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="cu10k.dat"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="2e0c2cce0b7c9e4eb11173daa536fd03"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+</wc-entries>

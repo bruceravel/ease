@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1"
+   name=""
+   committed-date="2005-03-15T17:47:51.488392Z"
+   url="file:///home/bruce/svn/ease/trunk/tutorial/examples"
+   last-author="bruce"
+   kind="dir"
+   uuid="517f2799-5df2-0310-be4b-e67c1f732285"
+   revision="1"/>
+<entry
+   committed-rev="1"
+   name="pbtio3.inp"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="7f8a0648afa5d047f2fbb272385e4c10"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   name="fits"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="mn3o4.inp"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="a450091476065ad0dd011c9e6c35bf9f"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   name="feff"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="batio3.inp"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="e366485a45c34ef16f0b5d9726c0969c"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="atoms.inp"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="5b6fdc56ef4f86a0b13944e8fb95cfae"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="copper"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="fbf41feca30d24eb1a6d84dc0049cbfc"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="feffit.inp"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="491c30345fdd630abed3688ec5271435"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   name="data"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="autobk.inp"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="cc6030aeab31c7df9f19ca97a7ad9344"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+<entry
+   committed-rev="1"
+   name="cu.inp"
+   text-time="2005-04-14T19:00:14.000000Z"
+   committed-date="2005-03-15T17:47:51.488392Z"
+   checksum="149f4453e7328aa78e0f5de99cda7379"
+   last-author="bruce"
+   kind="file"
+   prop-time="2005-04-14T19:00:14.000000Z"/>
+</wc-entries>
