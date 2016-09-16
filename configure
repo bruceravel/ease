@@ -1,0 +1,364 @@
+#!/bin/sh
+
+#---------------------------------------------------------------
+getedit () {
+
+clear
+cat <<EOF
+
+
+To use EASE, the following lines must be in your .emacs file:
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq load-path (append (list "$instdir")
+                        load-path))
+(setq auto-mode-alist
+      (append (list (cons "\\.inp$"  'input-mode))
+	      auto-mode-alist))
+(autoload 'input-mode "input" "Input major mode" t)
+(autoload 'ease-mode  "ease"  "EASE" t)
+(add-hook 'dired-load-hook '(lambda () (load-library "ease-dired")))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+You may edit your .emacs file by hand or allow this script to add the
+necessary lines.  If you have previously installed EASE, you probably
+do not need to have this customization performed.
+
+ (y) Yes, append these lines to my .emacs file.
+ (n) No, do not alter my .emacs.
+ (r) Return to the main menu.
+
+EOF
+
+if [ $edit_emacs = "yes" ]; then
+    echo "Currently your .emacs file -- WILL -- be edited."
+else
+    echo "Currently your .emacs file -- WILL NOT -- be edited."
+fi
+
+echo " "
+echo -n "Choose whether to edit .emacs or return to the main menu > "
+read answer
+case $answer in
+        y*|Y*) edit_emacs=yes; getedit ;;
+        n*|N*) edit_emacs=no;  getedit ;;
+  q*|Q*|r*|R*) main ;;
+            *) getedit ;;
+esac
+
+
+}
+
+#---------------------------------------------------------------
+getemacs () {
+
+clear
+cat <<EOF
+
+
+EASE works equally well with the normal version of Emacs from the FSF
+or with XEmacs.  If you use XEmacs, EASE provides colorful toolbars
+for each of the minor modes with commonly used function bound to each
+toolbar icon.
+
+The currently selected flavor of emacs is "$emacs".
+
+  (e) Choose FSF Emacs
+  (x) Choose XEmacs
+  (r) Return to the main menu
+
+EOF
+
+echo -n "Choose a version or return to the main menu > "
+read answer
+case $answer in
+        e*|E*) emacs=emacs;  getemacs ;;
+        x*|X*) emacs=xemacs; getemacs ;;
+  q*|Q*|r*|R*) main ;;
+            *) getemacs ;;
+esac
+
+}
+
+#---------------------------------------------------------------
+getid () {
+
+if [ $readflag > 0 ]; then
+    readstring='
+ *** Command line editing with ReadLine is available!
+'
+else
+    readstring=''
+fi
+clear
+cat <<EOF
+
+
+By default, EASE will be installed in the current directory.  You may
+specify a different directory here, or hit return to leave this
+unchanged.
+
+It is convenient to let EASE install in its own subdirectory.  For
+example, if you keep your person lisp code in "~/lisp/", then you might
+answer "~/lisp/ease" to this question.
+
+You can use tilde (~) but you cannot use \$HOME to specify your home
+directory.
+$readstring
+The current value of the installation directory is:
+        $instdir
+
+EOF
+echo -n "Enter installation directory > "
+$readcmd id
+if [ -z $id ]; then
+  main
+else
+  fname=$$
+  echo $id > $fname
+  instdir=`sed "s&\~&$HOME&" $$`
+  rm -f $fname
+  main
+fi
+
+}
+
+
+#---------------------------------------------------------------
+getperl () {
+
+clear
+cat <<EOF
+
+
+
+Distributed with the EASE are a number of scripts used for plotting
+and for other purposes.  These scripts are mostly perl, awk, and
+Bourne shell scripts.  To completely install EASE, I need to run a
+perl script which edits each of the scripts in the scripts/
+subdirectory such that they will run correctly.  To be sure that the
+perl utility that does this runs correctly, I will invoke perl
+explicitly.
+
+I determined the location of perl on your system using the "type -path"
+command.  You can specify an alternate location for perl below or you
+can hit return leave it unchanged.  If you enter the word "no",then
+the scripts will not be edited.  Note that, if this happens, several
+features of EASE may not work correctly.
+
+The current value of the location of perl is $perl
+
+EOF
+
+echo -n "Enter new location of perl > "
+$readcmd pl
+if [ -z $pl ]; then
+  main
+elif [ $pl = "no" ]; then
+  perl=""
+  main
+elif [ $pl = "NO" ]; then
+  perl=""
+  main
+else
+  perl=$pl
+  main
+fi
+
+}
+
+
+#---------------------------------------------------------------
+configure () {
+
+clear
+
+#  write .config.ease file
+echo " Emacs flavor:$emacs"               > $dotconfig
+echo " Installation directory:$instdir"  >> $dotconfig
+echo " Edit .emacs:$edit_emacs"          >> $dotconfig
+echo " Location of perl:$perl"           >> $dotconfig
+
+#  write message to the screen
+cat <<EOF
+
+Here is your configuration:
+
+    Emacs flavor:            [$emacs]
+    Installation directory:  [$instdir]
+    Editing .emacs:          [$edit_emacs]
+    Location of perl:        [$perl]
+
+
+EOF
+
+##  This preserves a pristine copy of input.el so that the
+##  configuration can be done a second time from the same source tree.
+if [ ! -f input.el.in ]; then
+    cp input.el input.el.in
+fi
+echo " -1- Fixing ease-base-directory in input.el..."
+sed "s&~/desktop/xlisp/ease/&$instdir/&" input.el.in > foo
+differ=`diff foo input.el`
+if [ "x$differ" = "x" ]; then
+    rm -f foo
+else
+    mv -f foo input.el
+fi
+
+##  grab the correct makefile and use sed to insert the proper values
+##  of PERL and INSTALL
+# if [ $emacs = "xemacs" ]; then
+#     makefile=Makefile.xemacs
+# else
+#     makefile=Makefile.emacs
+# fi
+makefile=Makefile.in
+tempfile=foo$$
+
+echo " -2- Fixing EMACS, PERL and INSTALL in Makefile.in and writing to Makefile..."
+sed "s&perl&$perl&" $makefile > Makefile
+sed "s&EMACS = emacs&EMACS = $emacs&" Makefile > $tempfile
+sed "s&INSTALL =&INSTALL = $instdir&" $tempfile > Makefile
+rm -f $tempfile
+##mv -f $tempfile Makefile
+
+##  append stuff to .emacs or write a message to the screen
+if [ $edit_emacs = "yes" ]; then
+    echo " -3- Appending EASE instructions to .emacs..."
+    echo "
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The following lines were added by the EASE Configuration utility:
+
+(setq load-path (append (list \"$instdir\") load-path))
+(setq auto-mode-alist
+      (append (list (cons \"\\\\.inp\$\"  'input-mode))
+	      auto-mode-alist))
+(autoload 'input-mode \"input\" \"Input major mode\" t)
+(autoload 'ease-mode  \"ease\"  \"EASE\" t)
+(add-hook 'dired-load-hook '(lambda () (load-library \"ease-dired\")))
+
+;; End of EASE configuration
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+" >> $HOME/.emacs
+else
+    cat <<EOF
+ -3- Not editing .emacs...
+     Make sure that you have lines like the following in your
+     .emacs file:
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq load-path (append (list "$instdir" ) load-path))
+(setq auto-mode-alist
+      (append (list (cons "\\\\.inp\$"  'input-mode))
+	      auto-mode-alist))
+(autoload 'input-mode "input" "Input major mode" t)
+(autoload 'ease-mode  "ease"  "EASE" t)
+(add-hook 'dired-load-hook '(lambda () (load-library "ease-dired")))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Note: If you have used FUSE (the prior name of EASE), then you need to
+      convert your ~/.fuse file to ~/.ease and change all references
+      to FUSE in your emacs initialization scripts.  This can be done
+      with the f2e script found in this directory.
+
+EOF
+fi
+
+cat <<EOF
+
+EASE configuration is complete.  Now type "make" to compile EASE and
+then "make install" to install it.
+
+EOF
+
+exit
+
+}
+
+
+#---------------------------------------------------------------
+# Main Menu
+main () {
+
+clear
+cat <<EOF
+
+
+EASE Configuration Utility      for EASE $version
+                                updated $date
+                                Bruce Ravel
+			        ravel@phys.washington.edu
+
+This is an interactive script for initially configuring EASE.  Check
+each of the values below to see that they are reasonable for you.
+$readln
+(1)  Emacs flavor:            [$emacs]
+(2)  Installation directory:  [$instdir]
+(3)  Edit .emacs:             [$edit_emacs]
+(4)  Location of perl:        [$perl]
+
+(x)  exit and configure EASE
+(q)  quit without configuring EASE
+
+If any of these are incorrect, enter that number to change it, or
+EOF
+echo -n "enter x to create the makefiles.  > "
+$readcmd choice
+
+case $choice in
+           1*) getemacs  ;;
+           2*) getid     ;;
+           3*) getedit   ;;
+           4*) getperl   ;;
+  x*|e*|X*|E*) configure ;;
+        q*|Q*) exit 0    ;;
+            *) main      ;;
+esac
+
+}
+
+
+
+#-------------------------------------------------------
+# main program
+
+## set some variables then call the main menu
+version="0.6.0"
+date="10 June 2000"
+dotconfig=./.config.ease
+emacs=emacs
+instdir=`echo $PWD`
+edit_emacs=no
+if (perl -v) < /dev/null > /dev/null 2>&1; then
+    perl=`type perl | awk '{print $NF}' | tr -d \.`
+else
+    perl=''
+fi
+if [ -f $dotconfig ]; then
+    tempfile=ease$$
+    foo=`cut -d : -f 2 $dotconfig | tr '\n' ' '`
+    echo $foo > $tempfile
+    read emacs instdir edit_emacs perl < $tempfile
+    rm -f $tempfile
+fi
+readcmd='read'
+readln='ReadLine is not available.'
+readflag=0
+# if (read -e < cat 'foo') < /dev/null > /dev/null 2>&1; then
+# else
+#     readcmd='read -e'
+#     readln='
+#ReadLine is enabled for options 2 and 4.
+#'
+#     readflag=1
+# fi
+if [ `uname -s` == "Linux" ]; then
+     readcmd='read -e'
+     readln="
+ReadLine is enabled for options 2 and 4.
+"
+     readflag=1
+fi
+main

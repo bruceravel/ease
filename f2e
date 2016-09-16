@@ -1,0 +1,50 @@
+#!/bin/sh
+
+## This script converts .fuse, .emacs, and other files for use with
+## EASE.  This is necessary if you were previously using FUSE and you
+## want to convert all your customizations.  The conversion is
+## simple.  It replaces the strings "fuse" and "FUSE" with "ease" and
+## "EASE" in the specified file.
+
+## replace fuse with ease in $1 and write it to $2
+fix_file () {
+    if [ -f $1 ]; then
+	echo 'FUSE --> EASE conversion'
+	if [ -f $2 ]; then
+	    cp $2 $2.bak
+	    echo saved $2 as $2.bak
+	fi
+	sed 's/fuse/ease/g' $1 > $tempfile
+	sed 's/FUSE/EASE/g' $tempfile > $2
+	rm -f $tempfile
+	echo converted $1 and wrote to $2
+    else
+        echo The file \`$1\' does not exist
+    fi
+}
+
+usage () {
+    cat <<EOF
+  usage : f2e .fuse      (convert ~/.fuse to ~/.ease)
+     or   f2e .emacs     (fix lines in ~/.emacs)
+     or   f2e <file>     (<file> can be a filename with path)
+
+  convert lines in an emacs initialization file from FUSE to EASE
+
+EOF
+}
+
+
+tempfile=__$$__
+
+if [ $# == 0 ]; then
+    usage
+    exit
+fi
+
+case $1 in
+    \.fuse)     fix_file $HOME/.fuse $HOME/.ease ;;
+    \.emacs)    fix_file $HOME/.emacs $HOME/.emacs ;;
+    -h|-H|-\? ) usage; exit ;;
+    *)          fix_file $1 $1 ;;
+esac
